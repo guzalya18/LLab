@@ -19,21 +19,5 @@ class RegisterForm(forms.ModelForm):
     def clean_password2(self):
         cd = self.cleaned_data
         if cd['password'] != cd['password2']:
-            raise forms.ValidationError('Passwords don\'t match.')
+            raise forms.ValidationError('Passwords dont match.')
         return cd['password2']
-
-#
-# class RegisterForm(UserCreationForm):
-#     email = forms.EmailField()
-#
-#     class Meta:
-#         model = User
-#         fields = ['username', 'email', 'password1', 'password2']
-#
-#     def save(self, commit=True):
-#         user = super(RegisterForm, self).save(commit=False)
-#         user.set_password(self.cleaned_data["password1"])
-#         user.email = self.cleaned_data["email"]
-#         if commit:
-#             user.save()
-#         return user

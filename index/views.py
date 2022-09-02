@@ -15,10 +15,6 @@ def home(request):
     return render(request, 'home.html')
 
 
-def courses(request):
-    return render(request, 'courses.html')
-
-
 def login1(request):
     if request.user.is_authenticated:
         return redirect('home')
@@ -74,8 +70,3 @@ def userspage(request):
 def logout(request):
     messages.info(request, "Logged out successfully!")
     return redirect("homepage")
-
-
-def save(self, *args, **kwargs):
-    if not User.objects.filter(name=self.name).first():
-        super(User, self).__init__(*args, **kwargs)
